@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+
+const firstName = "John";
+const lastName = "Doe";
+// Concatenating first and last names to create a full name
+const fullName = `${firstName} ${lastName}`; //`${firstName} ${lastName}`;
+console.log("Full Name:", fullName);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
