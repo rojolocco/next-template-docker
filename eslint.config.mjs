@@ -11,12 +11,13 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.config({
-    extends: ["next/core-web-vitals", "next/typescript", "prettier"],
+    extends: ["next/core-web-vitals", "next/typescript", "prettier", "plugin:@tanstack/query/recommended"],
     rules: {
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],
       "semi": ["error"],
       "quotes": ["error", "double"],
+      "@tanstack/query/exhaustive-deps": ["error"]
     }
   }),
 ];
