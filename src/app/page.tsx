@@ -5,6 +5,7 @@ import ProductTable from "@/components/ProductTable";
 import CreateTableForm from "@/components/CreateTableForm";
 import { sampleProducts } from "@/data/products";
 import { env as clientEnv } from "@/env/client";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [envData, setEnvData] = useState<any>(null);
@@ -68,13 +69,13 @@ export default function Home() {
           {/* Sección de prueba de variables de entorno */}
           <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
             <h2 className="text-lg font-semibold mb-3">🔧 Prueba de Variables de Entorno (T3 + Zod)</h2>
-            <button
+            <Button
               onClick={testEnvAPI}
               disabled={loading}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              variant="default"
             >
               {loading ? "Cargando..." : "Probar API de Variables"}
-            </button>
+            </Button>
             
             {envData && (
               <div className="mt-4 p-3 bg-white dark:bg-gray-700 rounded text-left">
@@ -100,20 +101,20 @@ export default function Home() {
             </h2>
             
             <div className="flex flex-wrap gap-4 mb-6">
-              <button
+              <Button
                 onClick={testDatabaseConnection}
                 disabled={loading}
-                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                variant="default"
               >
                 {loading ? "Probando..." : "Probar Conexión DB"}
-              </button>
+              </Button>
               
-              <button
+              <Button
                 onClick={() => setShowCreateTable(!showCreateTable)}
-                className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
+                variant="secondary"
               >
                 {showCreateTable ? "Ocultar" : "Crear Nueva Tabla"}
-              </button>
+              </Button>
             </div>
 
             {/* Resultado de prueba de conexión */}
