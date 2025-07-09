@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import ProductTable from "@/components/ProductTable";
+import CreateTableForm from "@/components/CreateTableForm";
 import { sampleProducts } from "@/data/products";
 import { env as clientEnv } from "@/env/client";
 
 export default function Home() {
   const [envData, setEnvData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [showCreateTable, setShowCreateTable] = useState(false);
+  const [dbTestResult, setDbTestResult] = useState<any>(null);
 
   // Ejemplo de uso de variables de entorno del cliente (validadas con T3 y Zod)
   console.log("🔧 Variables de entorno del cliente:");
@@ -29,6 +32,27 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Función para probar la conexión a la base de datos
+  const testDatabaseConnection = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/db-test');
+      const data = await response.json();
+      setDbTestResult(data);
+      console.log("🗄️ Resultado de conexión DB:", data);
+    } catch (error) {
+      console.error("❌ Error al conectar con la DB:", error);
+      setDbTestResult({ success: false, error: 'Network error' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleTableCreated = (tableName: string) => {
+    console.log(`✅ Tabla '${tableName}' creada exitosamente`);
+    // Opcional: refrescar la lista de tablas o mostrar mensaje
   };
   return (
     <div className="min-h-screen bg-background p-4 sm:p-8">
@@ -68,8 +92,62 @@ export default function Home() {
           </div>
         </header>
 
-        <main>
-          <ProductTable data={sampleProducts} />
+        <main className="space-y-8">
+          {/* Sección de gestión de base de datos */}
+          <section className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              🗄️ Gestión de Base de Datos
+            </h2>
+            
+            <div className="flex flex-wrap gap-4 mb-6">
+              <button
+                onClick={testDatabaseConnection}
+                disabled={loading}
+                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? "Probando..." : "Probar Conexión DB"}
+              </button>
+              
+              <button
+                onClick={() => setShowCreateTable(!showCreateTable)}
+                className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
+              >
+                {showCreateTable ? "Ocultar" : "Crear Nueva Tabla"}
+              </button>
+            </div>
+
+            {/* Resultado de prueba de conexión */}
+            {dbTestResult && (
+              <div className={`mb-4 p-3 rounded ${
+                dbTestResult.success
+                  ? 'bg-green-100 dark:bg-green-900 border border-green-400 text-green-700 dark:text-green-300'
+                  : 'bg-red-100 dark:bg-red-900 border border-red-400 text-red-700 dark:text-red-300'
+              }`}>
+                <strong>
+                  {dbTestResult.success ? '✅ Conexión exitosa' : '❌ Error de conexión'}
+                </strong>
+                <details className="mt-2">
+                  <summary className="cursor-pointer font-medium">Ver detalles</summary>
+                  <pre className="mt-2 text-xs overflow-x-auto bg-white dark:bg-gray-800 p-2 rounded">
+                    {JSON.stringify(dbTestResult, null, 2)}
+                  </pre>
+                </details>
+              </div>
+            )}
+
+            {/* Formulario de creación de tabla */}
+            {showCreateTable && (
+              <CreateTableForm onSuccess={handleTableCreated} />
+            )}
+          </section>
+
+          {/* Tabla de productos existente */}
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              📦 Catálogo de Productos (Ejemplo)
+            </h2>
+            <ProductTable data={sampleProducts} />
+          </section>
         </main>
 
         <footer className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
