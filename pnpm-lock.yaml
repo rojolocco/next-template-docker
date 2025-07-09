@@ -20,6 +20,12 @@ importers:
       axios:
         specifier: ^1.10.0
         version: 1.10.0
+      dotenv:
+        specifier: ^17.2.0
+        version: 17.2.0
+      dotenv-expand:
+        specifier: ^12.0.2
+        version: 12.0.2
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.2(postgres@3.4.7)
@@ -63,6 +69,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.1.6(@types/react@19.1.8)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       drizzle-kit:
         specifier: ^0.31.4
         version: 0.31.4
@@ -1217,6 +1226,11 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
+  cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
@@ -1278,6 +1292,18 @@ packages:
   doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
+
+  dotenv-expand@12.0.2:
+    resolution: {integrity: sha512-lXpXz2ZE1cea1gL4sz2Ipj8y4PiVjytYr3Ij0SWoms1PGxIv7m2CRKuRuCRtHdVuvM/hNJPMxt5PbhboNC4dPQ==}
+    engines: {node: '>=12'}
+
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
+
+  dotenv@17.2.0:
+    resolution: {integrity: sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==}
+    engines: {node: '>=12'}
 
   drizzle-kit@0.31.4:
     resolution: {integrity: sha512-tCPWVZWZqWVx2XUsVpJRnH9Mx0ClVOf5YUHerZ5so1OKSlqww4zy1R5ksEdGRcO3tM3zj0PYN6V48TbQCL1RfA==}
@@ -3476,6 +3502,10 @@ snapshots:
 
   concat-map@0.0.1: {}
 
+  cross-env@7.0.3:
+    dependencies:
+      cross-spawn: 7.0.6
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -3533,6 +3563,14 @@ snapshots:
   doctrine@2.1.0:
     dependencies:
       esutils: 2.0.3
+
+  dotenv-expand@12.0.2:
+    dependencies:
+      dotenv: 16.6.1
+
+  dotenv@16.6.1: {}
+
+  dotenv@17.2.0: {}
 
   drizzle-kit@0.31.4:
     dependencies:

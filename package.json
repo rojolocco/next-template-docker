@@ -7,13 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier src/ --write"
+    "format": "prettier src/ --write",
+    "db:migrate": "cross-env DB_MIGRATING=true drizzle-kit migrate"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-table": "^8.21.3",
     "axios": "^1.10.0",
+    "dotenv": "^17.2.0",
+    "dotenv-expand": "^12.0.2",
     "drizzle-orm": "^0.44.2",
     "next": "15.3.4",
     "postgres": "^3.4.7",
@@ -30,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "drizzle-kit": "^0.31.4",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
