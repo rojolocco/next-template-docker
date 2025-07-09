@@ -5,19 +5,13 @@ import ProductTable from "@/components/ProductTable";
 import CreateTableForm from "@/components/CreateTableForm";
 import { sampleProducts } from "@/data/products";
 import { env as clientEnv } from "@/env/client";
+import { Button } from '@heroui/react';
 
 export default function Home() {
   const [envData, setEnvData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [showCreateTable, setShowCreateTable] = useState(false);
   const [dbTestResult, setDbTestResult] = useState<any>(null);
-
-  // Ejemplo de uso de variables de entorno del cliente (validadas con T3 y Zod)
-  console.log("🔧 Variables de entorno del cliente:");
-  console.log("API Base URL:", clientEnv.NEXT_PUBLIC_API_BASE_URL);
-  
-  // Las variables del servidor NO están disponibles en el cliente por seguridad
-  // console.log(serverEnv.NEXT_API_SECRET); // ❌ Esto causaría un error
 
   // Función para probar la API de variables de entorno
   const testEnvAPI = async () => {
@@ -64,7 +58,15 @@ export default function Home() {
           <p className="text-gray-600 dark:text-gray-400">
             Gestiona tu inventario con ordenamiento por columnas
           </p>
-          
+          <div className="flex flex-wrap gap-4 items-center">
+            <Button color="default">Default</Button>
+            <Button color="primary">Primary</Button>
+            <Button color="secondary">Secondary</Button>
+            <Button color="success">Success</Button>
+            <Button color="warning">Warning</Button>
+            <Button color="danger">Danger</Button>
+          </div>
+
           {/* Sección de prueba de variables de entorno */}
           <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
             <h2 className="text-lg font-semibold mb-3">🔧 Prueba de Variables de Entorno (T3 + Zod)</h2>
@@ -75,7 +77,7 @@ export default function Home() {
             >
               {loading ? "Cargando..." : "Probar API de Variables"}
             </button>
-            
+
             {envData && (
               <div className="mt-4 p-3 bg-white dark:bg-gray-700 rounded text-left">
                 <h3 className="font-semibold mb-2">📡 Respuesta de la API:</h3>
@@ -84,7 +86,7 @@ export default function Home() {
                 </pre>
               </div>
             )}
-            
+
             <div className="mt-3 text-sm text-gray-600 dark:text-gray-400">
               <p>✅ Variable del cliente: {clientEnv.NEXT_PUBLIC_API_BASE_URL}</p>
               <p>🔒 Variables del servidor solo disponibles en la API</p>
@@ -98,7 +100,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
               🗄️ Gestión de Base de Datos
             </h2>
-            
+
             <div className="flex flex-wrap gap-4 mb-6">
               <button
                 onClick={testDatabaseConnection}
@@ -107,7 +109,7 @@ export default function Home() {
               >
                 {loading ? "Probando..." : "Probar Conexión DB"}
               </button>
-              
+
               <button
                 onClick={() => setShowCreateTable(!showCreateTable)}
                 className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
@@ -118,11 +120,10 @@ export default function Home() {
 
             {/* Resultado de prueba de conexión */}
             {dbTestResult && (
-              <div className={`mb-4 p-3 rounded ${
-                dbTestResult.success
+              <div className={`mb-4 p-3 rounded ${dbTestResult.success
                   ? 'bg-green-100 dark:bg-green-900 border border-green-400 text-green-700 dark:text-green-300'
                   : 'bg-red-100 dark:bg-red-900 border border-red-400 text-red-700 dark:text-red-300'
-              }`}>
+                }`}>
                 <strong>
                   {dbTestResult.success ? '✅ Conexión exitosa' : '❌ Error de conexión'}
                 </strong>

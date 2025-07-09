@@ -11,6 +11,8 @@
     "db:migrate": "cross-env DB_MIGRATING=true drizzle-kit migrate"
   },
   "dependencies": {
+    "@heroui/button": "^2.2.22",
+    "@heroui/react": "^2.7.11",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-table": "^8.21.3",
@@ -18,6 +20,7 @@
     "dotenv": "^17.2.0",
     "dotenv-expand": "^12.0.2",
     "drizzle-orm": "^0.44.2",
+    "framer-motion": "^12.23.1",
     "next": "15.3.4",
     "postgres": "^3.4.7",
     "react": "^19.0.0",
