@@ -11,7 +11,7 @@ export async function GET() {
 
     // Si hay error, intentar con 'test' (minúscula)
     if (error) {
-      console.log('❌ Error con "Test", intentando con "test":', error.message);
+      console.log("❌ Error con \"Test\", intentando con \"test\":", error.message);
       const result = await supabase.from("test").select("*").limit(1);
 
       data = result.data;
