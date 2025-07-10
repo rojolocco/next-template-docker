@@ -39,10 +39,6 @@ jobs:
       # - name: Run tests
       #   run: pnpm test
 
-      # Format code
-      - name: Run format
-        run: pnpm format
-
       # Lint code
       - name: Run linting
         run: pnpm lint
