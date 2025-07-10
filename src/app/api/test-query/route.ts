@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 
+<<<<<<< HEAD
 import supabase from "@/lib/supabase-client";
+=======
+import { supabase } from "@/lib/supabase";
+>>>>>>> ec0ecf8 (format changes)
 
 export async function GET() {
   try {
@@ -11,7 +15,11 @@ export async function GET() {
 
     // Si hay error, intentar con 'test' (minúscula)
     if (error) {
+<<<<<<< HEAD
       console.log("❌ Error con \"Test\", intentando con \"test\":", error.message);
+=======
+      console.log('❌ Error con "Test", intentando con "test":', error.message);
+>>>>>>> ec0ecf8 (format changes)
       const result = await supabase.from("test").select("*").limit(1);
 
       data = result.data;

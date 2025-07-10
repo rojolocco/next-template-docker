@@ -1,5 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button } from "@/components/ui/button";
+=======
+"use client";
+
+import { useState } from "react";
+
+import CreateTableForm from "@/components/CreateTableForm";
+import ProductTable from "@/components/ProductTable";
+import { Button } from "@/components/ui/button";
+import { sampleProducts } from "@/data/products";
+import { env as clientEnv } from "@/env/client";
+>>>>>>> ec0ecf8 (format changes)
 
 export default function Home() {
   return (

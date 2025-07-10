@@ -17,6 +17,10 @@ const eslintConfig = [
       "prettier",
       "plugin:@tanstack/query/recommended",
     ],
+<<<<<<< HEAD
+=======
+    plugins: {},
+>>>>>>> ec0ecf8 (format changes)
     rules: {
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],

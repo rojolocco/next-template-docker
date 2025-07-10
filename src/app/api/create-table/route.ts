@@ -3,7 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { sql } from "drizzle-orm";
 import { z } from "zod";
 
+<<<<<<< HEAD
 import { db } from "@/db";
+=======
+import { client, db } from "@/db";
+>>>>>>> ec0ecf8 (format changes)
 import { createDynamicTableSchema } from "@/db/schemas/dynamic-tables";
 
 // Schema for validating the request body
@@ -68,7 +72,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Create dynamic table schema using Drizzle
+<<<<<<< HEAD
     createDynamicTableSchema(tableName, columns);
+=======
+    const dynamicTableSchema = createDynamicTableSchema(tableName, columns);
+>>>>>>> ec0ecf8 (format changes)
 
     // Build CREATE TABLE query using Drizzle's SQL builder
     const columnDefinitions = columns

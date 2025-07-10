@@ -3,7 +3,10 @@ import postgres from "postgres";
 
 import { env } from "@/env/server";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> ec0ecf8 (format changes)
 
 import * as schema from "./schemas/dynamic-tables";
 >>>>>>> ec0ecf8 (format changes)
