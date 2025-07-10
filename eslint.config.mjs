@@ -17,14 +17,12 @@ const eslintConfig = [
       "prettier",
       "plugin:@tanstack/query/recommended",
     ],
-    plugins: {},
     rules: {
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],
       semi: ["error"],
       quotes: ["error", "double"],
       "@tanstack/query/exhaustive-deps": ["error"],
-      "n/no-process-env": ["error"],
     },
   }),
 ];

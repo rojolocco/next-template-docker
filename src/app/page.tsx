@@ -8,12 +8,33 @@ import { Button } from "@/components/ui/button";
 import { sampleProducts } from "@/data/products";
 import { env as clientEnv } from "@/env/client";
 
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+  data?: Record<string, unknown> | null;
+  error?: string;
+  [key: string]: unknown;
+}
+
+interface TestQueryData {
+  [key: string]: string | number | boolean | null;
+}
+
+interface TestQueryResponse {
+  success: boolean;
+  message?: string;
+  data?: TestQueryData | null;
+  error?: string;
+  row_count?: number;
+  [key: string]: unknown;
+}
+
 export default function Home() {
-  const [envData, setEnvData] = useState<any>(null);
+  const [envData, setEnvData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [showCreateTable, setShowCreateTable] = useState(false);
-  const [dbTestResult, setDbTestResult] = useState<any>(null);
-  const [testQueryResult, setTestQueryResult] = useState<any>(null);
+  const [dbTestResult, setDbTestResult] = useState<ApiResponse | null>(null);
+  const [testQueryResult, setTestQueryResult] = useState<TestQueryResponse | null>(null);
 
   // Ejemplo de uso de variables de entorno del cliente (validadas con T3 y Zod)
   console.log("🔧 Variables de entorno del cliente:");

@@ -25,7 +25,7 @@ export function createDynamicTableSchema(
     primaryKey: boolean;
   }>
 ) {
-  const tableColumns: Record<string, any> = {};
+  const tableColumns: Record<string, ReturnType<typeof text | typeof integer | typeof boolean | typeof timestamp | typeof varchar | typeof decimal>> = {};
 
   columns.forEach((col) => {
     let column;

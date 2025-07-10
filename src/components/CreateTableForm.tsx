@@ -25,7 +25,11 @@ export default function CreateTableForm({ onSuccess }: CreateTableFormProps) {
     { name: "id", type: "INTEGER", nullable: false, primaryKey: true },
   ]);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    success: boolean;
+    message: string;
+    data?: Record<string, unknown>;
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const columnTypes = [
@@ -50,7 +54,7 @@ export default function CreateTableForm({ onSuccess }: CreateTableFormProps) {
     }
   };
 
-  const updateColumn = (index: number, field: keyof Column, value: any) => {
+  const updateColumn = (index: number, field: keyof Column, value: string | boolean) => {
     const newColumns = [...columns];
     newColumns[index] = { ...newColumns[index], [field]: value };
 
