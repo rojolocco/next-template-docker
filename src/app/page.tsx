@@ -12,6 +12,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [showCreateTable, setShowCreateTable] = useState(false);
   const [dbTestResult, setDbTestResult] = useState<any>(null);
+  const [testQueryResult, setTestQueryResult] = useState<any>(null);
 
   // Ejemplo de uso de variables de entorno del cliente (validadas con T3 y Zod)
   console.log("🔧 Variables de entorno del cliente:");
@@ -46,6 +47,22 @@ export default function Home() {
     } catch (error) {
       console.error("❌ Error al conectar con la DB:", error);
       setDbTestResult({ success: false, error: 'Network error' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Función para consultar la primera fila de la tabla Test
+  const queryTestTable = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/test-query');
+      const data = await response.json();
+      setTestQueryResult(data);
+      console.log("🔍 Resultado de consulta tabla Test:", data);
+    } catch (error) {
+      console.error("❌ Error al consultar tabla Test:", error);
+      setTestQueryResult({ success: false, error: 'Network error' });
     } finally {
       setLoading(false);
     }
@@ -115,6 +132,14 @@ export default function Home() {
               >
                 {showCreateTable ? "Ocultar" : "Crear Nueva Tabla"}
               </Button>
+              
+              <Button
+                onClick={queryTestTable}
+                disabled={loading}
+                variant="outline"
+              >
+                {loading ? "Consultando..." : "Consultar Tabla Test"}
+              </Button>
             </div>
 
             {/* Resultado de prueba de conexión */}
@@ -131,6 +156,46 @@ export default function Home() {
                   <summary className="cursor-pointer font-medium">Ver detalles</summary>
                   <pre className="mt-2 text-xs overflow-x-auto bg-white dark:bg-gray-800 p-2 rounded">
                     {JSON.stringify(dbTestResult, null, 2)}
+                  </pre>
+                </details>
+              </div>
+            )}
+
+            {/* Resultado de consulta tabla Test */}
+            {testQueryResult && (
+              <div className={`mb-4 p-3 rounded ${
+                testQueryResult.success
+                  ? 'bg-blue-100 dark:bg-blue-900 border border-blue-400 text-blue-700 dark:text-blue-300'
+                  : 'bg-red-100 dark:bg-red-900 border border-red-400 text-red-700 dark:text-red-300'
+              }`}>
+                <strong>
+                  {testQueryResult.success ? '🔍 Consulta exitosa - Tabla Test' : '❌ Error en consulta'}
+                </strong>
+                {testQueryResult.success && (
+                  <div className="mt-2">
+                    {testQueryResult.data ? (
+                      <>
+                        <p className="font-medium">Primera fila encontrada:</p>
+                        <div className="mt-1 p-2 bg-white dark:bg-gray-800 rounded text-sm">
+                          {Object.entries(testQueryResult.data).map(([key, value]) => (
+                            <div key={key} className="flex justify-between border-b border-gray-200 dark:border-gray-600 py-1">
+                              <span className="font-medium">{key}:</span>
+                              <span>{String(value)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <p className="font-medium text-yellow-600 dark:text-yellow-400">
+                        📭 La tabla Test existe pero no contiene datos
+                      </p>
+                    )}
+                  </div>
+                )}
+                <details className="mt-2">
+                  <summary className="cursor-pointer font-medium">Ver detalles técnicos</summary>
+                  <pre className="mt-2 text-xs overflow-x-auto bg-white dark:bg-gray-800 p-2 rounded">
+                    {JSON.stringify(testQueryResult, null, 2)}
                   </pre>
                 </details>
               </div>
