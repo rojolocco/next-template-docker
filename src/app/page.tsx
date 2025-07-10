@@ -41,6 +41,14 @@ export default function Home() {
             <Button variant="outline" size="lg" className="px-8">
               View Documentation
             </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="px-8"
+              onClick={() => window.location.href = "/users"}
+            >
+              Manage Users
+            </Button>
           </div>
         </div>
 
