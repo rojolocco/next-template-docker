@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
-import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Next.js Template - Datapulse SAS",
-  description: "Professional Next.js template created by Datapulse SAS for modern web development projects",
+  description:
+    "Professional Next.js template created by Datapulse SAS for modern web development projects",
 };
 
 export default function RootLayout({

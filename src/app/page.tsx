@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 
@@ -16,8 +17,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-8">
+        <div className="mb-16 text-center">
+          <div className="mb-8 flex justify-center">
             <Image
               src="/icons/logo_color.png"
               alt="Datapulse SAS Logo"
@@ -25,12 +26,13 @@ export default function Home() {
               height={255}
             />
           </div>
-          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="mb-6 text-5xl font-bold text-gray-900 dark:text-white">
             Next.js Template
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Professional Next.js template developed by <strong>Datapulse SAS</strong> to 
-            accelerate the development of modern and scalable web applications.
+          <p className="mx-auto mb-8 max-w-3xl text-xl text-gray-600 dark:text-gray-300">
+            Professional Next.js template developed by{" "}
+            <strong>Datapulse SAS</strong> to accelerate the development of
+            modern and scalable web applications.
           </p>
           <div className="flex justify-center space-x-4">
             <Button size="lg" className="px-8">
@@ -43,28 +45,49 @@ export default function Home() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900">
+              <svg
+                className="h-6 w-6 text-blue-600 dark:text-blue-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
               High Performance
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Optimized with Next.js 15, Turbopack and development best practices.
+              Optimized with Next.js 15, Turbopack and development best
+              practices.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900">
+              <svg
+                className="h-6 w-6 text-green-600 dark:text-green-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
               Database
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
@@ -72,13 +95,23 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900">
+              <svg
+                className="h-6 w-6 text-purple-600 dark:text-purple-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
               Modern UI
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
@@ -86,13 +119,23 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900">
+              <svg
+                className="h-6 w-6 text-orange-600 dark:text-orange-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
               Docker Ready
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
@@ -100,13 +143,23 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-red-100 dark:bg-red-900">
+              <svg
+                className="h-6 w-6 text-red-600 dark:text-red-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
               Code Quality
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
@@ -114,13 +167,23 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900">
+              <svg
+                className="h-6 w-6 text-indigo-600 dark:text-indigo-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
               Global State
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
@@ -130,26 +193,29 @@ export default function Home() {
         </div>
 
         {/* Tech Stack */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+        <div className="mb-16 rounded-xl bg-white p-8 shadow-lg dark:bg-gray-800">
+          <h3 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
             Technology Stack
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
             {[
-              'Next.js 15',
-              'React 19',
-              'TypeScript',
-              'Tailwind CSS 4',
-              'Drizzle ORM',
-              'PostgreSQL',
-              'Supabase',
-              'Docker',
-              'Zustand',
-              'TanStack Query',
-              'Radix UI',
-              'Lucide Icons'
+              "Next.js 15",
+              "React 19",
+              "TypeScript",
+              "Tailwind CSS 4",
+              "Drizzle ORM",
+              "PostgreSQL",
+              "Supabase",
+              "Docker",
+              "Zustand",
+              "TanStack Query",
+              "Radix UI",
+              "Lucide Icons",
             ].map((tech) => (
-              <div key={tech} className="bg-gray-50 dark:bg-gray-700 px-3 py-2 rounded-lg text-center">
+              <div
+                key={tech}
+                className="rounded-lg bg-gray-50 px-3 py-2 text-center dark:bg-gray-700"
+              >
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   {tech}
                 </span>
@@ -162,8 +228,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 text-center text-gray-600 dark:text-gray-400">
         <p>
-          © 2024 Datapulse SAS. All rights reserved. 
-          This template is available for use in company projects.
+          © 2024 Datapulse SAS. All rights reserved. This template is available
+          for use in company projects.
         </p>
       </footer>
     </div>
