@@ -1,14 +1,15 @@
 "use client";
 
+import { useState } from "react";
+
 import {
+  SortingState,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
-  SortingState,
   useReactTable,
 } from "@tanstack/react-table";
-import { useState } from "react";
 
 import { Product } from "@/types/product";
 
@@ -33,12 +34,13 @@ const columns = [
       const stock = info.getValue();
       return (
         <span
-          className={`font-medium ${stock < 10
+          className={`font-medium ${
+            stock < 10
               ? "text-red-600 dark:text-red-400"
               : stock < 50
                 ? "text-yellow-600 dark:text-yellow-400"
                 : "text-green-600 dark:text-green-400"
-            }`}
+          }`}
         >
           {stock}
         </span>
@@ -75,20 +77,21 @@ export default function ProductTable({ data }: ProductTableProps) {
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-300"
+                    className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300"
                   >
                     {header.isPlaceholder ? null : (
                       <div
-                        className={`flex items-center space-x-1 ${header.column.getCanSort()
+                        className={`flex items-center space-x-1 ${
+                          header.column.getCanSort()
                             ? "cursor-pointer select-none hover:text-gray-700 dark:hover:text-gray-100"
                             : ""
-                          }`}
+                        }`}
                         onClick={header.column.getToggleSortingHandler()}
                       >
                         <span>
                           {flexRender(
                             header.column.columnDef.header,
-                            header.getContext(),
+                            header.getContext()
                           )}
                         </span>
                         {header.column.getCanSort() && (
@@ -115,7 +118,7 @@ export default function ProductTable({ data }: ProductTableProps) {
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
-                    className="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100"
+                    className="px-6 py-4 text-sm whitespace-nowrap text-gray-900 dark:text-gray-100"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>

@@ -17,9 +17,7 @@ const eslintConfig = [
       "prettier",
       "plugin:@tanstack/query/recommended",
     ],
-    plugins: {
-      n: require("eslint-plugin-n"),
-    },
+    plugins: {},
     rules: {
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],
