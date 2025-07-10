@@ -1,0 +1,48 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  VERSION: "v0.1.0"
+  FRONTEND_NAME: "webapp-team"
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Run tests
+      # - name: Run tests
+      #   run: pnpm test
+
+      # Format code
+      # - name: Run format
+      #   run: pnpm format
+
+      # Lint code
+      - name: Run linting
+        run: pnpm lint
