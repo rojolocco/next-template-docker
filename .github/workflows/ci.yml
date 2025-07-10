@@ -10,7 +10,7 @@ on:
 
 env:
   VERSION: "v0.1.0"
-  FRONTEND_NAME: "webapp-team"
+  FRONTEND_NAME: "next-template-docker"
 
 jobs:
   test:
@@ -40,8 +40,8 @@ jobs:
       #   run: pnpm test
 
       # Format code
-      # - name: Run format
-      #   run: pnpm format
+      - name: Run format
+        run: pnpm format
 
       # Lint code
       - name: Run linting
