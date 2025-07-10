@@ -1,0 +1,19 @@
+services:
+  next-app:
+    container_name: next-app
+    image: ghcr.io/rojolocco/next-app:latest
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - next-app-data:/app/data
+    networks:
+      - traefik_network
+
+volumes:
+  next-app-data:
+    driver: local
+
+networks:
+  traefik_network:
+    external: true
