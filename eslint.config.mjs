@@ -18,9 +18,12 @@ const eslintConfig = [
       "plugin:@tanstack/query/recommended",
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     plugins: {},
 >>>>>>> ec0ecf8 (format changes)
+=======
+>>>>>>> 7a0cc50 (lint errors fixed)
     rules: {
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],

@@ -26,10 +26,14 @@ export function createDynamicTableSchema(
   }>
 ) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const tableColumns: Record<string, ReturnType<typeof text | typeof integer | typeof boolean | typeof timestamp | typeof varchar | typeof decimal>> = {};
 =======
   const tableColumns: Record<string, any> = {};
 >>>>>>> ec0ecf8 (format changes)
+=======
+  const tableColumns: Record<string, ReturnType<typeof text | typeof integer | typeof boolean | typeof timestamp | typeof varchar | typeof decimal>> = {};
+>>>>>>> 7a0cc50 (lint errors fixed)
 
   columns.forEach((col) => {
     let column;

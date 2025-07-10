@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { client } from "@/db";
 =======
 import db, { client } from "@/db";
 >>>>>>> ec0ecf8 (format changes)
+=======
+import { client } from "@/db";
+>>>>>>> 7a0cc50 (lint errors fixed)
 
 export async function GET() {
   try {
